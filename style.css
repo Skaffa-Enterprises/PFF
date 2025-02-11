@@ -1,0 +1,159 @@
+/* Algemene instellingen */
+body {
+    font-family: 'Arial', sans-serif; /* Schreefloze font */
+    background-color: white; /* Witte achtergrond */
+    color: black; /* Zwarte tekstkleur */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: lightblue; /* Lichtblauwe achtergrond */
+    color: white; /* Witte tekstkleur */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    height: 50px; /* Hoogte van het logo */
+    margin-right: 10px;
+}
+
+header .search {
+    display: flex;
+}
+
+header input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+header button {
+    padding: 5px 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Navigatie */
+nav {
+    background-color: darkgray; /* Grijze achtergrond voor het menu */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    flex: 1;
+}
+
+nav a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    color: white; /* Witte tekstkleur */
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: gray; /* Hover-effect */
+}
+
+/* Main */
+main {
+    padding: 20px;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%; /* Volledige breedte */
+    max-height: 400px; /* Maximale hoogte van de afbeeldingen */
+}
+
+/* Welkomsttekst */
+.welcome-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+/* Openingstijden */
+.openingstijden {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: lightblue; /* Lichtblauwe achtergrond */
+    color: white; /* Witte tekstkleur */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white; /* Witte tekstkleur */
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Onderstreping bij hover */
+}
+
+.kvk-btw {
+    font-size: 0.8em; /* Klein lettertype voor KVK en BTW */
+}
+
+.moving-biker {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+/* Animatie voor de bewegende fietser */
+#biker {
+    width: 50px; /* Breedte van de fietser */
+    animation: moveBiker 5s linear infinite; /* Animatie */
+}
+
+@keyframes moveBiker {
+    0% {
+        transform: translateX(-100%); /* Begin links */
+    }
+    50% {
+        transform: translateX(100%); /* Beweeg naar rechts */
+    }
+    100% {
+        transform: translateX(-100%); /* Keer terug naar links */
+    }
+}
