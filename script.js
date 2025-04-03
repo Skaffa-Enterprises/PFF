@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function welcomeMSG() {
     if (!window.location.pathname.endsWith("index.html")) return
-    fetch('../Documents/welcomeMessage.txt')
+    fetch('/Documents/welcomeMessage.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fietsen laden uit een .txt-bestand
     if (!window.location.pathname.endsWith("verhuur.html")) return;
 
-    fetch('../Documents/huurLijst.txt')
+    fetch('/Documents/huurLijst.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Kan fietsenbestand niet laden.');
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function historieText() {
-    fetch('../Documents/historie.txt')
+    fetch('/Documents/historie.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -276,7 +276,7 @@ function historieText() {
 }
 
 function eigenaarText() {
-    fetch('../Documents/eigenaar.txt')
+    fetch('/Documents/eigenaar.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -292,7 +292,7 @@ function eigenaarText() {
 }
 
 function monteursText() {
-    fetch('../Documents/monteurs.txt')
+    fetch('/Documents/monteurs.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -308,7 +308,7 @@ function monteursText() {
 }
 
 function missieText() {
-    fetch('../Documents/missie.txt')
+    fetch('/Documents/missie.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
