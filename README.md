@@ -1,2 +1,0 @@
-# PFF
-Project Fluitende Fietser
