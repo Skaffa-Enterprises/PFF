@@ -1,0 +1,27 @@
+﻿<Window x:Class="FluitendeFietserWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FluitendeFietserWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFECEAD4">
+        
+        <StackPanel Margin="20">
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged" x:Name="ComboBoxFietsen" HorizontalAlignment="Right" Margin="0,70,30,0" Height="50" Width="200"/>
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged" x:Name="ComboBoxVerzekeringen" HorizontalAlignment="Right" Margin="0,0,30,0" Height="50" Width="200"/>
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged" x:Name="ComboBoxServices" HorizontalAlignment="Right" Margin="0,0,30,0" Height="50" Width="200"/>
+        </StackPanel>
+        <TextBox Height="50" Width="50" HorizontalAlignment="Right" Name="aantaldagen" VerticalAlignment="Bottom"></TextBox>
+        <Button x:Name="toevoegbtn" Height="50" Width="50" Click="toevoegbtn_Click"> toevoegen</Button>
+        
+        <ListBox Height="150" Width="300"  VerticalAlignment="Center" HorizontalAlignment="Left"></ListBox>
+        <ProgressBar x:Name="afkbar" Height="20" Maximum="60" Value="0" Foreground="Green" VerticalAlignment="Bottom" />
+        <Button x:Name="rekenmachineBTN" Height="44" Width="150" Click="RekenmachineBTN_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,20"/>
+        <Button Name="timer"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="44" Width="150" Margin="150,0,0,20" Click="Timer_Click"/>
+        <TextBlock x:Name="titelTB" TextWrapping="Wrap" Width="400" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Fietsverhuur &quot;De Fluitende Fietser&quot; – Facturering" FontWeight="Bold" LineHeight="20" FontSize="16" Background="#FF19BEDE" TextAlignment="Center"/>
+        
+
+    </Grid>
+</Window>

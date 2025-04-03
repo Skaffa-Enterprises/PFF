@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|c:\\users\\daxpc\\summacollege o365\\michalczuk, denny - repo\\pff\\wpf app\\fluitendefietserwpf\\fluitendefietserwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|solutionrelative:fluitendefietserwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|c:\\users\\daxpc\\summacollege o365\\michalczuk, denny - repo\\pff\\wpf app\\fluitendefietserwpf\\fluitendefietserwpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|solutionrelative:fluitendefietserwpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|c:\\users\\daxpc\\summacollege o365\\michalczuk, denny - repo\\pff\\wpf app\\fluitendefietserwpf\\fluitendefietserwpf\\prijzen_fietsen_verzekeringen_services.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|solutionrelative:fluitendefietserwpf\\prijzen_fietsen_verzekeringen_services.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|c:\\users\\daxpc\\summacollege o365\\michalczuk, denny - repo\\pff\\wpf app\\fluitendefietserwpf\\fluitendefietserwpf\\timer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|solutionrelative:fluitendefietserwpf\\timer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|c:\\users\\daxpc\\summacollege o365\\michalczuk, denny - repo\\pff\\wpf app\\fluitendefietserwpf\\fluitendefietserwpf\\timer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|solutionrelative:fluitendefietserwpf\\timer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|c:\\users\\daxpc\\summacollege o365\\michalczuk, denny - repo\\pff\\wpf app\\fluitendefietserwpf\\fluitendefietserwpf\\de_rekenmachine.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|solutionrelative:fluitendefietserwpf\\de_rekenmachine.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|c:\\users\\daxpc\\summacollege o365\\michalczuk, denny - repo\\pff\\wpf app\\fluitendefietserwpf\\fluitendefietserwpf\\de_rekenmachine.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F984DDC-EB5C-4519-9838-C9AA7482296E}|FluitendeFietserWPF\\FluitendeFietserWPF.csproj|solutionrelative:fluitendefietserwpf\\de_rekenmachine.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1226,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "de_rekenmachine.xaml",
+              "DocumentMoniker": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\de_rekenmachine.xaml",
+              "RelativeDocumentMoniker": "FluitendeFietserWPF\\de_rekenmachine.xaml",
+              "ToolTip": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\de_rekenmachine.xaml",
+              "RelativeToolTip": "FluitendeFietserWPF\\de_rekenmachine.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-25T10:44:33.134Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "prijzen_fietsen_verzekeringen_services.csv",
+              "DocumentMoniker": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\prijzen_fietsen_verzekeringen_services.csv",
+              "RelativeDocumentMoniker": "FluitendeFietserWPF\\prijzen_fietsen_verzekeringen_services.csv",
+              "ToolTip": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\prijzen_fietsen_verzekeringen_services.csv",
+              "RelativeToolTip": "FluitendeFietserWPF\\prijzen_fietsen_verzekeringen_services.csv",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-04-03T08:10:41.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "timer.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\timer.xaml.cs",
+              "RelativeDocumentMoniker": "FluitendeFietserWPF\\timer.xaml.cs",
+              "ToolTip": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\timer.xaml.cs",
+              "RelativeToolTip": "FluitendeFietserWPF\\timer.xaml.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAcwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T07:30:05.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "timer.xaml",
+              "DocumentMoniker": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\timer.xaml",
+              "RelativeDocumentMoniker": "FluitendeFietserWPF\\timer.xaml",
+              "ToolTip": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\timer.xaml",
+              "RelativeToolTip": "FluitendeFietserWPF\\timer.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-03T07:28:41.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "de_rekenmachine.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\de_rekenmachine.xaml.cs",
+              "RelativeDocumentMoniker": "FluitendeFietserWPF\\de_rekenmachine.xaml.cs",
+              "ToolTip": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\de_rekenmachine.xaml.cs",
+              "RelativeToolTip": "FluitendeFietserWPF\\de_rekenmachine.xaml.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAA5wFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T10:45:30.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "FluitendeFietserWPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\MainWindow.xaml",
+              "RelativeToolTip": "FluitendeFietserWPF\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-25T09:42:22.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FluitendeFietserWPF\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\daxpc\\Summacollege O365\\Michalczuk, Denny - Repo\\PFF\\WPF App\\FluitendeFietserWPF\\FluitendeFietserWPF\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "FluitendeFietserWPF\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAiwJEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T09:42:21.6Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
