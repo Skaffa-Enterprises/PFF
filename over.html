@@ -10,7 +10,7 @@
 <body>
         <header>
         <div class="logo">
-            <img src="/Assets/Images/logo.png" alt="Logo De Fluitende Fietser"> <!-- Logo afbeelding -->
+            <img src="/Images/logo.png" alt="Logo De Fluitende Fietser"> <!-- Logo afbeelding -->
             <h1>De Fluitende Fietser</h1>
         </div>
         <div class="search">
@@ -32,19 +32,19 @@
     <main>
         <h1>Over ons</h1>
         <div id="overonsBox">
-            <div class="overonsContainer" id="historieContent">
+            <div class="overonsContainer" id="historieContent" style="background-image: url('/Images/Over/historie.jpg');">
                 <h2>Historie</h2>
                 <p id="historie"></p>
             </div>
-            <div class="overonsContainer" id="eigenaarContent">
+            <div class="overonsContainer" id="eigenaarContent" style="background-image: url('/Images/Over/eigenaar.jpg');">
                 <h2>Onze eigenaar</h2>
                 <p id="eigenaar"></p>
             </div>
-            <div class="overonsContainer" id="monteursContent">
+            <div class="overonsContainer" id="monteursContent" style="background-image: url('/Images/Over/monteurs.jpg');">
                 <h2>Onze monteurs</h2>
                 <p id="monteurs"></p>
             </div>
-            <div class="overonsContainer" id="missieContent">
+            <div class="overonsContainer" id="missieContent" style="background-image: url('/Images/Over/missie.jpg');">
                 <h2>Onze missie</h2>
                 <p id="missieBericht"></p>
             </div>
@@ -69,8 +69,8 @@
         <div class="copyright">
             <p>© 2022 Fluitende Fietser</p>
         </div>
-        <div class="moving-biker" onload="MoveBiker()">
-            <img src="/Assets/Images/fiets-standaard-footer.png" alt="Bewegende fietser" id="biker">
+        <div class="moving-biker">
+            <img src="/Images/fiets-standaard-footer.png" alt="Bewegende fietser" id="biker" onload="MoveBiker()">
         </div>
     </footer>
 
