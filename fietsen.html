@@ -8,15 +8,16 @@
     <link rel="icon" href="">
 </head>
 <body>
-    <header>
+    <header onload="MoveBiker()">
         <div class="logo">
-            <img src="/Assets/Images/logo.png" alt="Logo De Fluitende Fietser"> 
+            <img src="/Images/logo.png" alt="Logo De Fluitende Fietser"> 
             <h1>De Fluitende Fietser</h1>
         </div>
         <div class="search">
             <input type="text" placeholder="Zoeken...">
             <button type="button">🔍</button>
         </div>
+        <button class="open-winkelmand-knop mand-knop" onclick="toonWinkelmand()">🛒 Winkelmand</button>
     </header>
 
     <nav>
@@ -40,7 +41,7 @@
                         <p>Voor dagelijks gebruik, een comfortabele stadsfiets met 7 versnellingen.</p>
                         <p class="prijs">€499</p>
                     </div>
-                    <button class="koop-knop" onclick="voegToeAanMand('Stadsfiets', 499)">Toevoegen aan winkelmand</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Stadsfiets', 499)">Koop nu</button>
                 </div>
                 <div class="fiets">
                     <img src="/Images/racefiets.jpg" alt="Racefiets">
@@ -49,25 +50,25 @@
                         <p>Lichte en snelle racefiets voor de sportievelingen. Dit is de favoriet van onze monteur Mo, omdat hij snel en vertrouwbaar is.</p>
                         <p class="prijs">€999</p>
                     </div>
-                    <button class="koop-knop">Koop nu</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Racefiets', 999)">Koop nu</button>
                 </div>
                 <div class="fiets">
                     <img src="/Images/elektrischefiets.jpg" alt="Elektrische fiets">
                     <div class="fiets-info">
                         <h3>Elektrische fiets</h3>
                         <p>Krachtige e-bike met een actieradius tot 100 km. Voor de snelle jelle's onder ons.</p>
-                        <p class="prijs">€1.799</p>
+                        <p class="prijs">€1799</p>
                     </div>
-                    <button class="koop-knop">Koop nu</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Elektrische fiets', 1799)">Koop nu</button>
                 </div>
                 <div class="fiets">
                     <img src="/Images/mountainbike.jpg" alt="Mountainbike">
                     <div class="fiets-info">
                         <h3>Mountainbike</h3>
                         <p>Voor de echte avonturier, een robuuste mountainbike voor ruig terrein.</p>
-                        <p class="prijs">€1.299</p>
+                        <p class="prijs">€1299</p>
                     </div>
-                    <button class="koop-knop">Koop nu</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Mountainbike', 1299)">Koop nu</button>
                 </div>
                 <div class="fiets">
                     <img src="/Images/vouwfiets.jpg" alt="Vouwfiets">
@@ -76,16 +77,16 @@
                         <p>Voor hipsters, een handige vouwfiets voor woon-werkverkeer.</p>
                         <p class="prijs">€699</p>
                     </div>
-                    <button class="koop-knop">Koop nu</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Vouwfiets', 699)">Koop nu</button>
                 </div>
                 <div class="fiets">
                     <img src="/Images/bakfiets.jpg" alt="Bakfiets">
                     <div class="fiets-info">
                         <h3>Bakfiets</h3>
                         <p>Ruime bakfiets ideaal voor gezinnen. Neem je kinderen mee op avontuur!</p>
-                        <p class="prijs">€1.999</p>
+                        <p class="prijs">€1999</p>
                     </div>
-                    <button class="koop-knop">Koop nu</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Bakfiets', 1999)">Koop nu</button>
                 </div>
                 <div class="fiets">
                     <img src="/Images/hybridefiets.jpg" alt="Hybride fiets">
@@ -94,7 +95,7 @@
                         <p>Voor de multi-taskers, de perfecte mix tussen een stadsfiets en een mountainbike.</p>
                         <p class="prijs">€899</p>
                     </div>
-                    <button class="koop-knop">Koop nu</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Hybride fiets', 899)">Koop nu</button>
                 </div>
                 <div class="fiets">                    <img src="/Images/kinderfiets.jpg" alt="Kinderfiets">
                     <div class="fiets-info">
@@ -102,7 +103,7 @@
                         <p>Voor kinderen tot en met 4 jaar, een stevige kinderfiets met zijwieltjes.</p>
                         <p class="prijs">€299</p>
                     </div>
-                    <button class="koop-knop">Koop nu</button>
+                    <button class="koop-knop" onclick="toonFietsDetails('Kinderfiets', 299)">Koop nu</button>
                 </div>
             </div>
         </section>
@@ -127,9 +128,33 @@
             <p>© 2022 Fluitende Fietser</p>
         </div>
         <div class="moving-biker">
-            <img src="/Assets/Images/fiets-standaard-footer.png" alt="Bewegende fietser" id="biker" onload="MoveBiker()">
+            <img src="/Images/fiets-standaard-footer.png" alt="Bewegende fietser" id="biker">
         </div>
     </footer>
+
+    <div id="fietsModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="sluitModal()">&times;</span>
+            <div id="fietsDetails">
+                <!-- Dynamische inhoud wordt hier geladen -->
+            </div>
+            <label for="aantal">Aantal:</label>
+            <input type="number" id="aantal" value="1" min="1">
+            <button class="mand-knop" id="toevoegenAanMand">Toevoegen aan winkelmand</button>
+        </div>
+    </div>
+
+    <div id="winkelmandModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="sluitWinkelmand()">&times;</span>
+            <h2>Winkelmand</h2>
+            <div id="winkelmandInhoud" class="winkelmand-scroll">
+                <!-- Dynamische inhoud van de winkelmand -->
+            </div>
+            <p><strong>Totaal:</strong> €<span id="winkelmandTotaal">0</span></p>
+            <button onclick="afrekenen()" class="afreken-knop">Afrekenen</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -81,7 +81,7 @@ function welcomeMSG() {
         });
 }
 
-/* Dax Java Cock */
+/* Dax Java Code */
 document.addEventListener("DOMContentLoaded", function () {
     const fietsLijst = document.getElementById("fiets-lijst");
     const huurButton = document.getElementById("huur-button");
@@ -92,29 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fietsen laden uit een .txt-bestand
     if (!window.location.pathname.endsWith("verhuur.html")) return;
-
-    fetch('/Documents/huurLijst.txt')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Kan fietsenbestand niet laden.');
-            }
-            return response.text();
-        })
-        .then(data => {
-            const fietsen = JSON.parse(data); // Parse de JSON-string uit het .txt-bestand
-            fietsen.forEach((fiets, index) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td><input type="checkbox" class="fiets-checkbox" data-fiets="${fiets.type}"></td>
-                    <td>${fiets.type}</td>
-                    <td>${fiets.prijs}</td>
-                `;
-                fietsLijst.appendChild(row);
-            });
-        })
-        .catch(error => {
-            console.error('Fout bij het laden van fietsen:', error);
-        });
 
     huurButton.addEventListener("click", function () {
         const geselecteerdeFiets = document.querySelector(".fiets-checkbox:checked");
@@ -140,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (!window.location.pathname.endsWith("index.html")) return
+    if (!window.location.pathname.endsWith("homepage.html")) return
     const welcomeMessage = document.getElementById("welcomeMessage");
     const messageBackground = document.getElementsByClassName("welcome-text")[0];
     const slider = document.getElementsByClassName("slider")[0];
@@ -158,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (!window.location.pathname.endsWith("contact.html")) return;
+    if (!window.location.pathname.endsWith("homepage.html")) return;
     const winkelStatus = document.querySelector(".winkelStatus-shown");
     const statusText = document.querySelector(".status");
     const mainElement = document.querySelector("main");
@@ -389,60 +366,365 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Winkelmand functionaliteit
-let winkelmand = [];
+document.addEventListener("DOMContentLoaded", function () {
+    const fietsModal = document.getElementById("fietsModal");
+    const fietsDetails = document.getElementById("fietsDetails");
+    const aantalInput = document.getElementById("aantal");
 
-// Voeg een fiets toe aan de winkelmand
-function voegToeAanMand(fietsNaam, prijs) {
-    const item = { naam: fietsNaam, prijs: prijs };
-    winkelmand.push(item);
-    alert(`${fietsNaam} is toegevoegd aan je winkelmand.`);
-    updateMandIcon();
-}
-
-// Update het winkelmand-icoon met het aantal items
-function updateMandIcon() {
-    const mandIcon = document.getElementById("mand-aantal");
-    mandIcon.textContent = winkelmand.length;
-}
-
-// Toon de winkelmandinhoud op de mandje-pagina
-function toonWinkelmand() {
-    const mandContainer = document.getElementById("mand-container");
-    mandContainer.innerHTML = ""; // Leeg de container
-
-    if (winkelmand.length === 0) {
-        mandContainer.innerHTML = "<p>Je winkelmand is leeg.</p>";
-        return;
+    function toonFietsDetails(naam, prijs, afbeelding, beschrijving) {
+        fietsDetails.innerHTML = `
+            <img src="${afbeelding}" alt="${naam}">
+            <h2>${naam}</h2>
+            <p>${beschrijving}</p>
+            <p><strong>Prijs:</strong> €${prijs}</p>
+        `;
+        fietsModal.classList.add("show");
     }
 
-    let totaalPrijs = 0;
-    winkelmand.forEach((item, index) => {
-        const row = document.createElement("div");
-        row.classList.add("mand-item");
-        row.innerHTML = `
-            <p>${item.naam} - €${item.prijs}</p>
-            <button onclick="verwijderUitMand(${index})">Verwijder</button>
-        `;
-        mandContainer.appendChild(row);
-        totaalPrijs += parseFloat(item.prijs);
+    function sluitModal() {
+        fietsModal.classList.remove("show");
+    }
+
+    // Voeg event listeners toe aan de "Koop nu"-knoppen
+    document.querySelectorAll(".koop-knop").forEach(button => {
+        button.addEventListener("click", function () {
+            const fietsElement = this.closest(".fiets");
+            const naam = fietsElement.querySelector("h3").textContent;
+            const prijs = fietsElement.querySelector(".prijs").textContent.replace("€", "");
+            const afbeelding = fietsElement.querySelector("img").src;
+            const beschrijving = fietsElement.querySelector("p").textContent;
+
+            toonFietsDetails(naam, prijs, afbeelding, beschrijving);
+        });
     });
 
-    const totaalElement = document.createElement("p");
-    totaalElement.innerHTML = `<strong>Totaal: €${totaalPrijs.toFixed(2)}</strong>`;
-    mandContainer.appendChild(totaalElement);
+    // Sluit de modal wanneer de sluitknop wordt geklikt
+    document.querySelector(".close-button").addEventListener("click", sluitModal);
+});
 
-    const afrekenKnop = document.createElement("button");
-    afrekenKnop.textContent = "Afrekenen";
-    afrekenKnop.onclick = function () {
+document.addEventListener("DOMContentLoaded", function () {
+    const winkelmand = JSON.parse(sessionStorage.getItem("winkelmand")) || [];
+    const winkelmandModal = document.getElementById("winkelmandModal");
+    const winkelmandInhoud = document.getElementById("winkelmandInhoud");
+    const winkelmandTotaal = document.getElementById("winkelmandTotaal");
+
+    console.log("Winkelmand opgehaald:", winkelmand);
+
+    function voegToeAanWinkelmand(naam, prijs, aantal, dagen = null, huur = false) {
+        const winkelmand = JSON.parse(sessionStorage.getItem("winkelmand")) || [];
+        const bestaandeItem = winkelmand.find(item => item.naam === naam && item.huur);
+    
+        if (bestaandeItem) {
+            if (huur) {
+                bestaandeItem.dagen += dagen; // Voeg dagen toe voor huurfietsen
+            } else {
+                bestaandeItem.aantal += aantal; // Voeg aantal toe voor koopfietsen
+            }
+        } else {
+            winkelmand.push({
+                naam,
+                prijs: parseFloat(prijs), // Zorg ervoor dat de prijs een numerieke waarde is
+                aantal,
+                dagen,
+                huur
+            });
+        }
+    
+        sessionStorage.setItem("winkelmand", JSON.stringify(winkelmand));
+        console.log("Winkelmand opgeslagen:", JSON.parse(sessionStorage.getItem("winkelmand")));
+    }
+
+    function toonWinkelmand() {
+        const winkelmand = JSON.parse(sessionStorage.getItem("winkelmand")) || [];
+        const winkelmandModal = document.getElementById("winkelmandModal");
+        const winkelmandInhoud = document.getElementById("winkelmandInhoud");
+        const winkelmandTotaal = document.getElementById("winkelmandTotaal");
+    
+        if (winkelmand.length === 0) {
+            winkelmandInhoud.innerHTML = "<p>Je winkelmand is leeg.</p>";
+            winkelmandTotaal.textContent = "0";
+        } else {
+            let totaal = 0;
+            let koopFietsenHTML = "<h3>Koopfietsen</h3>";
+            let huurFietsenHTML = "<h3>Huurfietsen</h3>";
+    
+            winkelmandInhoud.innerHTML = "";
+    
+            winkelmand.forEach((item, index) => {
+                const itemTotaal = item.huur
+                    ? item.prijs * item.dagen * item.aantal // Bereken totaal voor huurfietsen
+                    : item.prijs * item.aantal; // Bereken totaal voor koopfietsen
+                totaal += itemTotaal;
+    
+                if (item.huur) {
+                    huurFietsenHTML += `
+                        <div class="winkelmand-item">
+                            <p>${item.type}</p>
+                            <label for="aantal-${index}">Aantal fietsen:</label>
+                            <input type="number" id="aantal-${index}" data-id="${index}" value="${item.aantal}" min="1" class="aantal-input">
+                            <label for="dagen-${index}">Aantal dagen:</label>
+                            <input type="number" id="dagen-${index}" data-id="${index}" value="${item.dagen}" min="1" class="dagen-input">
+                            <p>Prijs per dag per fiets: €${item.prijs.toFixed(2)}</p>
+                            <p>Totaal: €${itemTotaal.toFixed(2)}</p>
+                        </div>
+                    `;
+                } else {
+                    koopFietsenHTML += `
+                        <div class="winkelmand-item">
+                            <p>${item.naam}</p>
+                            <label for="aantal-${index}">Aantal:</label>
+                            <input type="number" id="aantal-${index}" data-id="${index}" value="${item.aantal}" min="1" class="aantal-input">
+                            <p>Prijs per stuk: €${item.prijs.toFixed(2)}</p>
+                            <p>Totaal: €${itemTotaal.toFixed(2)}</p>
+                        </div>
+                    `;
+                }
+            });
+    
+            winkelmandInhoud.innerHTML = koopFietsenHTML + huurFietsenHTML;
+            winkelmandTotaal.textContent = totaal.toFixed(2);
+    
+            // Voeg event listeners toe aan de invoervelden voor aantal fietsen
+            document.querySelectorAll(".aantal-input").forEach((input) => {
+                input.addEventListener("change", function () {
+                    const index = parseInt(this.dataset.id); // Haal de juiste index op uit het data-id attribuut
+                    const nieuwAantal = parseInt(this.value);
+                    if (nieuwAantal < 1) {
+                        alert("Het aantal fietsen moet minstens 1 zijn.");
+                        this.value = winkelmand[index].aantal; // Reset naar het vorige aantal
+                        return;
+                    }
+            
+                    // Werk het aantal fietsen bij in de winkelmand
+                    winkelmand[index].aantal = nieuwAantal;
+                    sessionStorage.setItem("winkelmand", JSON.stringify(winkelmand)); // Sla de nieuwe waarde op
+                    toonWinkelmand(); // Werk de weergave bij
+                });
+            });
+            
+            // Voeg event listeners toe aan de invoervelden voor aantal dagen
+            document.querySelectorAll(".dagen-input").forEach((input) => {
+                input.addEventListener("change", function () {
+                    const index = parseInt(this.dataset.id); // Haal de juiste index op uit het data-id attribuut
+                    const nieuweDagen = parseInt(this.value);
+                    if (nieuweDagen < 1) {
+                        alert("Het aantal dagen moet minstens 1 zijn.");
+                        this.value = winkelmand[index].dagen; // Reset naar het vorige aantal dagen
+                        return;
+                    }
+            
+                    // Werk het aantal dagen bij in de winkelmand
+                    winkelmand[index].dagen = nieuweDagen;
+                    sessionStorage.setItem("winkelmand", JSON.stringify(winkelmand)); // Sla de nieuwe waarde op
+                    toonWinkelmand(); // Werk de weergave bij
+                });
+            });
+        }
+    
+        winkelmandModal.classList.add("show");
+    }
+    
+    // Maak de functies globaal toegankelijk
+    window.toonWinkelmand = toonWinkelmand;
+    window.sluitWinkelmand = sluitWinkelmand;
+    window.afrekenen = afrekenen;
+
+    function sluitWinkelmand() {
+        winkelmandModal.classList.remove("show");
+    }
+
+    function afrekenen() {
         window.location.href = "afrekenen.html";
-    };
-    mandContainer.appendChild(afrekenKnop);
-}
+    }
 
-// Verwijder een item uit de winkelmand
-function verwijderUitMand(index) {
-    winkelmand.splice(index, 1);
-    toonWinkelmand();
-    updateMandIcon();
-}
+    function sluitModal() {
+        fietsModal.classList.remove("show");
+    }
+
+    // Voeg event listener toe aan de "Toevoegen aan winkelmand"-knop
+    document.getElementById("toevoegenAanMand").addEventListener("click", function () {
+        const naam = document.querySelector("#fietsDetails h2").textContent;
+        const prijs = parseFloat(document.querySelector("#fietsDetails p strong").nextSibling.textContent.replace("€", ""));
+        const aantal = parseInt(document.getElementById("aantal").value);
+        sluitModal();
+        voegToeAanWinkelmand(naam, prijs, aantal);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname.endsWith("afrekenen.html")) {
+        const winkelmandInhoud = document.getElementById("winkelmandInhoud");
+        const winkelmandTotaal = document.getElementById("winkelmandTotaal");
+        const afrekenForm = document.getElementById("afrekenForm");
+
+        // Haal winkelmandgegevens op uit sessionStorage
+        const winkelmand = JSON.parse(sessionStorage.getItem("winkelmand")) || [];
+        console.log("Winkelmand opgehaald op afrekenpagina:", winkelmand);
+
+        function updateWinkelmand() {
+            if (winkelmand.length === 0) {
+                winkelmandInhoud.innerHTML = "<p>Je winkelmand is leeg.</p>";
+                winkelmandTotaal.textContent = "0";
+                return;
+            }
+
+            let totaal = 0;
+            let koopFietsenHTML = "<h3>Koopfietsen</h3>";
+            let huurFietsenHTML = "<h3>Huurfietsen</h3>";
+
+            winkelmandInhoud.innerHTML = "";
+
+            winkelmand.forEach((item, index) => {
+                const itemTotaal = item.prijs * (item.dagen || item.aantal); // Gebruik `dagen` voor huurfietsen en `aantal` voor koopfietsen
+                totaal += itemTotaal;
+
+                if (item.huur) {
+                    // Huurfietsen
+                    huurFietsenHTML += `
+                        <div class="winkelmand-item">
+                            <p>${item.dagen} dagen - ${item.type}</p>
+                            <p>Prijs per dag: €${parseFloat(item.prijs).toFixed(2)}</p>
+                            <p>Totaal: €${itemTotaal.toFixed(2)}</p>
+                            <button class="verwijder-knop" data-index="${index}">Verwijderen</button>
+                        </div>
+                    `;
+                } else {
+                    // Koopfietsen
+                    koopFietsenHTML += `
+                        <div class="winkelmand-item">
+                            <p>${item.aantal}x ${item.naam}</p>
+                            <p>Prijs per stuk: €${parseFloat(item.prijs).toFixed(2)}</p>
+                            <p>Totaal: €${itemTotaal.toFixed(2)}</p>
+                            <button class="verwijder-knop" data-index="${index}">Verwijderen</button>
+                        </div>
+                    `;
+                }
+            });
+
+            // Voeg de secties toe aan de winkelmandweergave
+            winkelmandInhoud.innerHTML = koopFietsenHTML + huurFietsenHTML;
+            winkelmandTotaal.textContent = totaal.toFixed(2);
+
+            // Voeg event listeners toe aan de verwijderknoppen
+            document.querySelectorAll(".verwijder-knop").forEach(button => {
+                button.addEventListener("click", function () {
+                    const index = this.dataset.index;
+                    winkelmand.splice(index, 1); // Verwijder het item uit de winkelmand
+                    sessionStorage.setItem("winkelmand", JSON.stringify(winkelmand));
+                    updateWinkelmand();
+                });
+            });
+        }
+
+        updateWinkelmand();
+
+        // Verwerk het formulier
+        afrekenForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Bedankt voor je bestelling! Je ontvangt een bevestiging per e-mail.");
+            sessionStorage.removeItem("winkelmand"); // Leeg de winkelmand
+            window.location.href = "homepage.html"; // Terug naar de homepage
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname.endsWith("verhuur.html")) {
+        const fietsLijst = document.getElementById("fiets-lijst");
+        const huurButton = document.getElementById("huur-button");
+        const verhuurModal = document.getElementById("verhuurModal");
+        const gekozenFietsenLijst = document.getElementById("gekozenFietsenLijst");
+        const aantalDagenInput = document.getElementById("aantalDagen");
+        const toevoegenAanWinkelmandButton = document.getElementById("toevoegenAanWinkelmand");
+
+        let gekozenFietsen = [];
+
+        // Fietsen laden uit een .txt-bestand
+        fetch('/Documents/huurLijst.txt')
+            .then(response => response.text())
+            .then(data => {
+                const fietsen = JSON.parse(data);
+                fietsen.forEach((fiets, index) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td><input type="checkbox" class="fiets-checkbox" data-fiets="${fiets.type}" data-prijs="${fiets.prijs}"></td>
+                        <td>${fiets.type}</td>
+                        <td>${fiets.prijs}</td>
+                    `;
+                    fietsLijst.appendChild(row);
+                });
+            });
+
+        // Open de verhuurmodal met de geselecteerde fietsen
+        huurButton.addEventListener("click", function () {
+            const geselecteerdeCheckboxen = document.querySelectorAll(".fiets-checkbox:checked");
+            if (geselecteerdeCheckboxen.length === 0) {
+                alert("Selecteer minstens één fiets om te huren.");
+                return;
+            }
+
+            gekozenFietsen = Array.from(geselecteerdeCheckboxen).map(checkbox => ({
+                type: checkbox.dataset.fiets,
+                prijs: checkbox.dataset.prijs
+            }));
+
+            gekozenFietsenLijst.innerHTML = gekozenFietsen.map((fiets, index) => `
+                <div class="gekozen-fiets-item">
+                    <p>${fiets.type} - ${fiets.prijs} per dag</p>
+                    <label for="aantalFietsen-${index}">Aantal fietsen:</label>
+                    <input type="number" id="aantalFietsen-${index}" value="1" min="1">
+                    <label for="aantalDagen-${index}">Aantal dagen:</label>
+                    <input type="number" id="aantalDagen-${index}" value="1" min="1">
+                </div>
+            `).join("");
+
+            verhuurModal.classList.add("show");
+        });
+
+        // Sluit de verhuurmodal
+        function sluitVerhuurModal() {
+            verhuurModal.classList.remove("show");
+        }
+        window.sluitVerhuurModal = sluitVerhuurModal;
+
+        // Voeg de gekozen fietsen toe aan de winkelmand
+        toevoegenAanWinkelmandButton.addEventListener("click", function () {
+            const winkelmand = JSON.parse(sessionStorage.getItem("winkelmand")) || [];
+
+            gekozenFietsen.forEach((fiets, index) => {
+                const aantalFietsen = parseInt(document.getElementById(`aantalFietsen-${index}`).value);
+                const aantalDagen = parseInt(document.getElementById(`aantalDagen-${index}`).value);
+
+                if (aantalFietsen < 1 || aantalDagen < 1) {
+                    alert(`Het aantal fietsen en dagen voor ${fiets.type} moet minstens 1 zijn.`);
+                    return;
+                }
+
+                const bestaandeItem = winkelmand.find(item => item.type === fiets.type && item.huur);
+                if (bestaandeItem) {
+                    bestaandeItem.dagen += aantalDagen; // Voeg dagen toe
+                    bestaandeItem.aantal += aantalFietsen; // Voeg het aantal fietsen toe
+                } else {
+                    // Verwijder het euroteken en zet de prijs om naar een numerieke waarde
+                    const prijsZonderEuro = fiets.prijs.replace("€", "").trim();
+                    winkelmand.push({
+                        type: fiets.type,
+                        prijs: parseFloat(prijsZonderEuro), // Zorg ervoor dat de prijs een numerieke waarde is
+                        dagen: aantalDagen,
+                        aantal: aantalFietsen, // Sla het aantal fietsen op
+                        huur: true
+                    });
+                }
+            });
+
+            sessionStorage.setItem("winkelmand", JSON.stringify(winkelmand));
+            sluitVerhuurModal();
+            alert("Fietsen toegevoegd aan de winkelmand!");
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Werk de winkelmandweergave bij met de inhoud van sessionStorage
+    updateWinkelmand();
+});

@@ -26,6 +26,7 @@
             <input type="text" placeholder="Zoeken...">
             <button type="button">🔍</button>
         </div>
+        <button class="open-winkelmand-knop mand-knop" onclick="toonWinkelmand()">🛒 Winkelmand</button>
     </header>
 
     <nav>
@@ -94,32 +95,27 @@
             </div>
         </div>
     </main>
-    
-    <div id="verhuur-formulier" class="hidden">
-        <div class="formulier-container">
-            <div class="fiets-geselecteerd">
-                <h3>Gekozen Fiets</h3>
-                <p id="gekozen-fiets"></p>
+
+    <div id="verhuurModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="sluitVerhuurModal()">&times;</span>
+            <h2>Gekozen Fietsen</h2>
+            <div id="gekozenFietsenLijst">
+                <!-- Dynamische inhoud wordt hier geladen -->
             </div>
-            <form id="gegevens-form">
-                <label for="naam">Naam:</label>
-                <input type="text" id="naam" required>
-                
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" required>
-                
-                <label for="adres">Adres:</label>
-                <input type="text" id="adres" required>
-                
-                <label for="stad">Stad:</label>
-                <input type="text" id="stad" required>
-                
-                <label for="postcode">Postcode:</label>
-                <input type="text" id="postcode" required>
-                
-                <button type="submit">Gegevens versturen</button>
-            </form>
-            <p id="bevestiging" class="hidden">Gegevens verstuurd!</p>
+            <button id="toevoegenAanWinkelmand">Toevoegen aan winkelmand</button>
+        </div>
+    </div>
+
+    <div id="winkelmandModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="sluitWinkelmand()">&times;</span>
+            <h2>Winkelmand</h2>
+            <div id="winkelmandInhoud" class="winkelmand-scroll">
+                <!-- Dynamische inhoud van de winkelmand -->
+            </div>
+            <p><strong>Totaal:</strong> €<span id="winkelmandTotaal">0</span></p>
+            <button onclick="afrekenen()" class="afreken-knop">Afrekenen</button>
         </div>
     </div>
     

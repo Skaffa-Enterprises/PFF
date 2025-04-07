@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrekenen - De Fluitende Fietser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/Images/logo.png" alt="Logo De Fluitende Fietser">
+            <h1>De Fluitende Fietser</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="fietsen.html">Fietsen</a></li>
+            <li><a href="verhuur.html">Verhuur</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="over.html">Over ons</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Afrekenen</h1>
+        <section id="winkelmand-overzicht">
+            <h2>Jouw Winkelmand</h2>
+            <div id="winkelmandInhoud">
+                <p>Je winkelmand is leeg.</p>
+            </div>
+            <p><strong>Totaal:</strong> €<span id="winkelmandTotaal">0</span></p>
+        </section>
+
+        <section id="klantgegevens">
+            <h2>Vul je gegevens in</h2>
+            <form id="afrekenForm">
+                <label for="naam">Naam:</label>
+                <input type="text" id="naam" name="naam" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="adres">Adres:</label>
+                <input type="text" id="adres" name="adres" required>
+
+                <label for="stad">Stad:</label>
+                <input type="text" id="stad" name="stad" required>
+
+                <label for="postcode">Postcode:</label>
+                <input type="text" id="postcode" name="postcode" required>
+
+                <button type="submit">Bestelling Bevestigen</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="over.html">Over ons</a>
+            <a href="contact.html">Contact info</a>
+            <a href="mailto:info@fluitendefietser.nl">info@fluitendefietser.nl</a>
+            <a href="steun.html">Wij steunen</a>
+            <a href="ff.html">Het Fluitend Fonds</a>
+            <a href="https://www.facebook.com/fietsmagazine" target="_blank">Facebook</a>
+        </div>
+        <div class="voorwaarden">
+            <a href="algemene_voorwaarden.html" download>Algemene Voorwaarden</a>
+        </div>
+        <div class="kvk-btw">
+            <p>KVK: 88599665 | BTW NL999888492Z09</p>
+        </div>
+        <div class="copyright">
+            <p>© 2022 Fluitende Fietser</p>
+        </div>
+        <div class="moving-biker">
+            <img src="/Images/fiets-standaard-footer.png" alt="Bewegende fietser" id="biker">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
